@@ -1,0 +1,27 @@
+[2021-10-17 14:21:09,903] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.choose_model scheduled__2021-10-16T00:00:00+00:00 [queued]>
+[2021-10-17 14:21:09,947] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.choose_model scheduled__2021-10-16T00:00:00+00:00 [queued]>
+[2021-10-17 14:21:09,947] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-17 14:21:09,947] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-10-17 14:21:09,947] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-17 14:21:09,963] {taskinstance.py:1262} INFO - Executing <Task(BranchPythonOperator): choose_model> on 2021-10-16 00:00:00+00:00
+[2021-10-17 14:21:09,971] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'xcom_dag', 'choose_model', 'scheduled__2021-10-16T00:00:00+00:00', '--job-id', '254', '--raw', '--subdir', 'DAGS_FOLDER/xcom_dag.py', '--cfg-path', '/tmp/tmpzd9a99ad', '--error-file', '/tmp/tmpi71zc4lh']
+[2021-10-17 14:21:09,971] {standard_task_runner.py:77} INFO - Job 254: Subtask choose_model
+[2021-10-17 14:21:09,969] {standard_task_runner.py:52} INFO - Started process 74 to run task
+[2021-10-17 14:21:10,010] {logging_mixin.py:109} INFO - Running <TaskInstance: xcom_dag.choose_model scheduled__2021-10-16T00:00:00+00:00 [running]> on host 29ba84338b36
+[2021-10-17 14:21:10,090] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=xcom_dag
+AIRFLOW_CTX_TASK_ID=choose_model
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-16T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-10-16T00:00:00+00:00
+[2021-10-17 14:21:10,090] {logging_mixin.py:109} INFO - choose best model
+[2021-10-17 14:21:10,101] {logging_mixin.py:109} INFO - [3.860077784204605, 8.893784647371362, 8.696412693686058]
+[2021-10-17 14:21:10,101] {logging_mixin.py:109} INFO - 8.893784647371362
+[2021-10-17 14:21:10,101] {python.py:152} INFO - Done. Returned value was: accurate
+[2021-10-17 14:21:10,101] {skipmixin.py:143} INFO - Following branch accurate
+[2021-10-17 14:21:10,102] {skipmixin.py:174} INFO - Skipping tasks ['inaccurate']
+[2021-10-17 14:21:10,142] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=xcom_dag, task_id=choose_model, execution_date=20211016T000000, start_date=20211017T142109, end_date=20211017T142110
+[2021-10-17 14:21:10,190] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-17 14:21:10,248] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,44 @@
+[2021-10-14 19:15:17,527] {taskinstance.py:1029} INFO - Dependencies not met for <TaskInstance: user_processing.creating_table scheduled__2021-10-13T00:00:00+00:00 [success]>, dependency 'Task Instance State' FAILED: Task is in the 'success' state which is not a valid state for execution. The task must be cleared in order to be run.
+[2021-10-14 19:15:17,528] {local_task_job.py:99} INFO - Task is not able to be run
+[2021-10-14 19:26:32,711] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: user_processing.creating_table manual__2021-10-14T19:08:59.171717+00:00 [queued]>
+[2021-10-14 19:26:32,727] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: user_processing.creating_table manual__2021-10-14T19:08:59.171717+00:00 [queued]>
+[2021-10-14 19:26:32,727] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-14 19:26:32,727] {taskinstance.py:1242} INFO - Starting attempt 2 of 2
+[2021-10-14 19:26:32,727] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-14 19:26:32,737] {taskinstance.py:1262} INFO - Executing <Task(SqliteOperator): creating_table> on 2021-10-14 19:08:59.171717+00:00
+[2021-10-14 19:26:32,741] {standard_task_runner.py:52} INFO - Started process 127 to run task
+[2021-10-14 19:26:32,743] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'user_processing', 'creating_table', 'manual__2021-10-14T19:08:59.171717+00:00', '--job-id', '41', '--raw', '--subdir', 'DAGS_FOLDER/user_processing.py', '--cfg-path', '/tmp/tmpr7bmj979', '--error-file', '/tmp/tmp5_gwcw8p']
+[2021-10-14 19:26:32,743] {standard_task_runner.py:77} INFO - Job 41: Subtask creating_table
+[2021-10-14 19:26:32,775] {logging_mixin.py:109} INFO - Running <TaskInstance: user_processing.creating_table manual__2021-10-14T19:08:59.171717+00:00 [running]> on host 981af2cc3d86
+[2021-10-14 19:26:32,809] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=user_processing
+AIRFLOW_CTX_TASK_ID=creating_table
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-14T19:08:59.171717+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-10-14T19:08:59.171717+00:00
+[2021-10-14 19:26:32,809] {sqlite.py:61} INFO - Executing: 
+            CREATE TABLE IF NOT EXISTS users (
+                first_name TEXT NOT NULL,
+                last_name TEXT NOT NULL,
+                country TEXT NOT NULL,
+                username TEXT NOT NULL,
+                password TEXT NOT NULL,
+                email TEXT NOT NULL PRIMARY KEY
+            );
+        
+[2021-10-14 19:26:32,816] {base.py:79} INFO - Using connection to: id: db_sqlite. Host: /opt/***/***.db, Port: None, Schema: , Login: , Password: None, extra: {}
+[2021-10-14 19:26:32,817] {dbapi.py:225} INFO - Running statement: 
+            CREATE TABLE IF NOT EXISTS users (
+                first_name TEXT NOT NULL,
+                last_name TEXT NOT NULL,
+                country TEXT NOT NULL,
+                username TEXT NOT NULL,
+                password TEXT NOT NULL,
+                email TEXT NOT NULL PRIMARY KEY
+            );
+        , parameters: []
+[2021-10-14 19:26:32,826] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=user_processing, task_id=creating_table, execution_date=20211014T190859, start_date=20211014T192632, end_date=20211014T192632
+[2021-10-14 19:26:32,875] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-14 19:26:32,911] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

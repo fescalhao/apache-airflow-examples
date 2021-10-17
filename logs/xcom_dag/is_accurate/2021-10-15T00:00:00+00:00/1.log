@@ -1,0 +1,368 @@
+[2021-10-16 16:50:24,052] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T16:50:17.494802+00:00 [queued]>
+[2021-10-16 16:50:24,065] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T16:50:17.494802+00:00 [queued]>
+[2021-10-16 16:50:24,065] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 16:50:24,065] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-10-16 16:50:24,065] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 16:50:24,084] {taskinstance.py:1262} INFO - Executing <Task(BranchPythonOperator): is_accurate> on 2021-10-16 16:50:17.494802+00:00
+[2021-10-16 16:50:24,089] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'xcom_dag', 'is_accurate', 'manual__2021-10-16T16:50:17.494802+00:00', '--job-id', '137', '--raw', '--subdir', 'DAGS_FOLDER/xcom_dag.py', '--cfg-path', '/tmp/tmplvobgh6e', '--error-file', '/tmp/tmpz6si3bbf']
+[2021-10-16 16:50:24,090] {standard_task_runner.py:77} INFO - Job 137: Subtask is_accurate
+[2021-10-16 16:50:24,087] {standard_task_runner.py:52} INFO - Started process 6564 to run task
+[2021-10-16 16:50:24,119] {logging_mixin.py:109} INFO - Running <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T16:50:17.494802+00:00 [running]> on host 981af2cc3d86
+[2021-10-16 16:50:24,156] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=xcom_dag
+AIRFLOW_CTX_TASK_ID=is_accurate
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-16T16:50:17.494802+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-10-16T16:50:17.494802+00:00
+[2021-10-16 16:50:24,163] {taskinstance.py:1686} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1324, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1443, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1499, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/operators/python.py", line 180, in execute
+    branch = super().execute(context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/operators/python.py", line 151, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/operators/python.py", line 162, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/xcom_dag.py", line 33, in _is_accurate
+    return ('accurate' if best_accurary > 5.0 else 'inaccurate')
+TypeError: '>' not supported between instances of 'list' and 'float'
+[2021-10-16 16:50:24,172] {taskinstance.py:1280} INFO - Marking task as FAILED. dag_id=xcom_dag, task_id=is_accurate, execution_date=20211016T165017, start_date=20211016T165024, end_date=20211016T165024
+[2021-10-16 16:50:24,181] {standard_task_runner.py:91} ERROR - Failed to execute job 137 for task is_accurate
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/cli/commands/task_command.py", line 292, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1324, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1443, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1499, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/operators/python.py", line 180, in execute
+    branch = super().execute(context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/operators/python.py", line 151, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/operators/python.py", line 162, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/xcom_dag.py", line 33, in _is_accurate
+    return ('accurate' if best_accurary > 5.0 else 'inaccurate')
+TypeError: '>' not supported between instances of 'list' and 'float'
+[2021-10-16 16:50:24,223] {local_task_job.py:154} INFO - Task exited with return code 1
+[2021-10-16 16:50:24,254] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2021-10-16 16:54:09,760] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T16:54:04.036898+00:00 [queued]>
+[2021-10-16 16:54:09,773] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T16:54:04.036898+00:00 [queued]>
+[2021-10-16 16:54:09,773] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 16:54:09,773] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-10-16 16:54:09,773] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 16:54:09,781] {taskinstance.py:1262} INFO - Executing <Task(BranchPythonOperator): is_accurate> on 2021-10-16 16:54:04.036898+00:00
+[2021-10-16 16:54:09,787] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'xcom_dag', 'is_accurate', 'manual__2021-10-16T16:54:04.036898+00:00', '--job-id', '149', '--raw', '--subdir', 'DAGS_FOLDER/xcom_dag.py', '--cfg-path', '/tmp/tmp9crdp4tx', '--error-file', '/tmp/tmp8kinub21']
+[2021-10-16 16:54:09,787] {standard_task_runner.py:77} INFO - Job 149: Subtask is_accurate
+[2021-10-16 16:54:09,784] {standard_task_runner.py:52} INFO - Started process 6777 to run task
+[2021-10-16 16:54:09,814] {logging_mixin.py:109} INFO - Running <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T16:54:04.036898+00:00 [running]> on host 981af2cc3d86
+[2021-10-16 16:54:09,848] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=xcom_dag
+AIRFLOW_CTX_TASK_ID=is_accurate
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-16T16:54:04.036898+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-10-16T16:54:04.036898+00:00
+[2021-10-16 16:54:09,855] {python.py:152} INFO - Done. Returned value was: accurate
+[2021-10-16 16:54:09,855] {skipmixin.py:143} INFO - Following branch accurate
+[2021-10-16 16:54:09,855] {skipmixin.py:174} INFO - Skipping tasks ['inaccurate']
+[2021-10-16 16:54:09,888] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=xcom_dag, task_id=is_accurate, execution_date=20211016T165404, start_date=20211016T165409, end_date=20211016T165409
+[2021-10-16 16:54:09,921] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-16 16:54:09,955] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-10-16 16:55:17,994] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T16:55:10.660602+00:00 [queued]>
+[2021-10-16 16:55:18,008] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T16:55:10.660602+00:00 [queued]>
+[2021-10-16 16:55:18,008] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 16:55:18,009] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-10-16 16:55:18,009] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 16:55:18,017] {taskinstance.py:1262} INFO - Executing <Task(BranchPythonOperator): is_accurate> on 2021-10-16 16:55:10.660602+00:00
+[2021-10-16 16:55:18,022] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'xcom_dag', 'is_accurate', 'manual__2021-10-16T16:55:10.660602+00:00', '--job-id', '155', '--raw', '--subdir', 'DAGS_FOLDER/xcom_dag.py', '--cfg-path', '/tmp/tmpwhveqywn', '--error-file', '/tmp/tmpe3i3dgut']
+[2021-10-16 16:55:18,023] {standard_task_runner.py:77} INFO - Job 155: Subtask is_accurate
+[2021-10-16 16:55:18,020] {standard_task_runner.py:52} INFO - Started process 6842 to run task
+[2021-10-16 16:55:18,052] {logging_mixin.py:109} INFO - Running <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T16:55:10.660602+00:00 [running]> on host 981af2cc3d86
+[2021-10-16 16:55:18,087] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=xcom_dag
+AIRFLOW_CTX_TASK_ID=is_accurate
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-16T16:55:10.660602+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-10-16T16:55:10.660602+00:00
+[2021-10-16 16:55:18,095] {logging_mixin.py:109} INFO - [6.840874887741323]
+[2021-10-16 16:55:18,095] {python.py:152} INFO - Done. Returned value was: accurate
+[2021-10-16 16:55:18,095] {skipmixin.py:143} INFO - Following branch accurate
+[2021-10-16 16:55:18,095] {skipmixin.py:174} INFO - Skipping tasks ['inaccurate']
+[2021-10-16 16:55:18,127] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=xcom_dag, task_id=is_accurate, execution_date=20211016T165510, start_date=20211016T165517, end_date=20211016T165518
+[2021-10-16 16:55:18,156] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-16 16:55:18,184] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-10-16 16:57:07,813] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T16:57:00.979542+00:00 [queued]>
+[2021-10-16 16:57:07,828] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T16:57:00.979542+00:00 [queued]>
+[2021-10-16 16:57:07,828] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 16:57:07,828] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-10-16 16:57:07,828] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 16:57:07,837] {taskinstance.py:1262} INFO - Executing <Task(BranchPythonOperator): is_accurate> on 2021-10-16 16:57:00.979542+00:00
+[2021-10-16 16:57:07,843] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'xcom_dag', 'is_accurate', 'manual__2021-10-16T16:57:00.979542+00:00', '--job-id', '168', '--raw', '--subdir', 'DAGS_FOLDER/xcom_dag.py', '--cfg-path', '/tmp/tmp938ro8xa', '--error-file', '/tmp/tmpsfn0rx7i']
+[2021-10-16 16:57:07,844] {standard_task_runner.py:77} INFO - Job 168: Subtask is_accurate
+[2021-10-16 16:57:07,841] {standard_task_runner.py:52} INFO - Started process 6965 to run task
+[2021-10-16 16:57:07,871] {logging_mixin.py:109} INFO - Running <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T16:57:00.979542+00:00 [running]> on host 981af2cc3d86
+[2021-10-16 16:57:07,906] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=xcom_dag
+AIRFLOW_CTX_TASK_ID=is_accurate
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-16T16:57:00.979542+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-10-16T16:57:00.979542+00:00
+[2021-10-16 16:57:07,912] {logging_mixin.py:109} INFO - [6.840874887741323]
+[2021-10-16 16:57:07,912] {python.py:152} INFO - Done. Returned value was: accurate
+[2021-10-16 16:57:07,912] {skipmixin.py:143} INFO - Following branch accurate
+[2021-10-16 16:57:07,912] {skipmixin.py:174} INFO - Skipping tasks ['inaccurate']
+[2021-10-16 16:57:07,944] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=xcom_dag, task_id=is_accurate, execution_date=20211016T165700, start_date=20211016T165707, end_date=20211016T165707
+[2021-10-16 16:57:07,978] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-16 16:57:08,010] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-10-16 16:58:25,969] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T16:58:18.625730+00:00 [queued]>
+[2021-10-16 16:58:25,983] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T16:58:18.625730+00:00 [queued]>
+[2021-10-16 16:58:25,983] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 16:58:25,983] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-10-16 16:58:25,983] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 16:58:25,991] {taskinstance.py:1262} INFO - Executing <Task(BranchPythonOperator): is_accurate> on 2021-10-16 16:58:18.625730+00:00
+[2021-10-16 16:58:25,997] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'xcom_dag', 'is_accurate', 'manual__2021-10-16T16:58:18.625730+00:00', '--job-id', '174', '--raw', '--subdir', 'DAGS_FOLDER/xcom_dag.py', '--cfg-path', '/tmp/tmp7v2hdupk', '--error-file', '/tmp/tmprpu5t3dq']
+[2021-10-16 16:58:25,998] {standard_task_runner.py:77} INFO - Job 174: Subtask is_accurate
+[2021-10-16 16:58:25,995] {standard_task_runner.py:52} INFO - Started process 7041 to run task
+[2021-10-16 16:58:26,027] {logging_mixin.py:109} INFO - Running <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T16:58:18.625730+00:00 [running]> on host 981af2cc3d86
+[2021-10-16 16:58:26,058] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=xcom_dag
+AIRFLOW_CTX_TASK_ID=is_accurate
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-16T16:58:18.625730+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-10-16T16:58:18.625730+00:00
+[2021-10-16 16:58:26,064] {logging_mixin.py:109} INFO - [6.840874887741323]
+[2021-10-16 16:58:26,064] {python.py:152} INFO - Done. Returned value was: accurate
+[2021-10-16 16:58:26,064] {skipmixin.py:143} INFO - Following branch accurate
+[2021-10-16 16:58:26,064] {skipmixin.py:174} INFO - Skipping tasks ['inaccurate']
+[2021-10-16 16:58:26,091] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=xcom_dag, task_id=is_accurate, execution_date=20211016T165818, start_date=20211016T165825, end_date=20211016T165826
+[2021-10-16 16:58:26,131] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-16 16:58:26,159] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-10-16 17:00:25,038] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate scheduled__2021-10-15T00:00:00+00:00 [queued]>
+[2021-10-16 17:00:25,059] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate scheduled__2021-10-15T00:00:00+00:00 [queued]>
+[2021-10-16 17:00:25,059] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 17:00:25,059] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-10-16 17:00:25,059] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 17:00:25,069] {taskinstance.py:1262} INFO - Executing <Task(BranchPythonOperator): is_accurate> on 2021-10-15 00:00:00+00:00
+[2021-10-16 17:00:25,076] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'xcom_dag', 'is_accurate', 'scheduled__2021-10-15T00:00:00+00:00', '--job-id', '180', '--raw', '--subdir', 'DAGS_FOLDER/xcom_dag.py', '--cfg-path', '/tmp/tmpnfa5l9rc', '--error-file', '/tmp/tmpo72_9_m0']
+[2021-10-16 17:00:25,073] {standard_task_runner.py:52} INFO - Started process 7166 to run task
+[2021-10-16 17:00:25,077] {standard_task_runner.py:77} INFO - Job 180: Subtask is_accurate
+[2021-10-16 17:00:25,110] {logging_mixin.py:109} INFO - Running <TaskInstance: xcom_dag.is_accurate scheduled__2021-10-15T00:00:00+00:00 [running]> on host 981af2cc3d86
+[2021-10-16 17:00:25,161] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=xcom_dag
+AIRFLOW_CTX_TASK_ID=is_accurate
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-15T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-10-15T00:00:00+00:00
+[2021-10-16 17:00:25,177] {logging_mixin.py:109} INFO - [6.840874887741323]
+[2021-10-16 17:00:25,177] {python.py:152} INFO - Done. Returned value was: accurate
+[2021-10-16 17:00:25,177] {skipmixin.py:143} INFO - Following branch accurate
+[2021-10-16 17:00:25,178] {skipmixin.py:174} INFO - Skipping tasks ['inaccurate']
+[2021-10-16 17:00:25,240] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=xcom_dag, task_id=is_accurate, execution_date=20211015T000000, start_date=20211016T170025, end_date=20211016T170025
+[2021-10-16 17:00:25,293] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-16 17:00:25,344] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-10-16 17:02:33,134] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate scheduled__2021-10-15T00:00:00+00:00 [queued]>
+[2021-10-16 17:02:33,148] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate scheduled__2021-10-15T00:00:00+00:00 [queued]>
+[2021-10-16 17:02:33,148] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 17:02:33,148] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-10-16 17:02:33,148] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 17:02:33,157] {taskinstance.py:1262} INFO - Executing <Task(BranchPythonOperator): is_accurate> on 2021-10-15 00:00:00+00:00
+[2021-10-16 17:02:33,163] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'xcom_dag', 'is_accurate', 'scheduled__2021-10-15T00:00:00+00:00', '--job-id', '186', '--raw', '--subdir', 'DAGS_FOLDER/xcom_dag.py', '--cfg-path', '/tmp/tmp0alv0_qc', '--error-file', '/tmp/tmp2shmyk08']
+[2021-10-16 17:02:33,163] {standard_task_runner.py:77} INFO - Job 186: Subtask is_accurate
+[2021-10-16 17:02:33,160] {standard_task_runner.py:52} INFO - Started process 7285 to run task
+[2021-10-16 17:02:33,191] {logging_mixin.py:109} INFO - Running <TaskInstance: xcom_dag.is_accurate scheduled__2021-10-15T00:00:00+00:00 [running]> on host 981af2cc3d86
+[2021-10-16 17:02:33,225] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=xcom_dag
+AIRFLOW_CTX_TASK_ID=is_accurate
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-15T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-10-15T00:00:00+00:00
+[2021-10-16 17:02:33,232] {logging_mixin.py:109} INFO - [6.840874887741323]
+[2021-10-16 17:02:33,232] {python.py:152} INFO - Done. Returned value was: accurate
+[2021-10-16 17:02:33,232] {skipmixin.py:143} INFO - Following branch accurate
+[2021-10-16 17:02:33,233] {skipmixin.py:174} INFO - Skipping tasks ['inaccurate']
+[2021-10-16 17:02:33,265] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=xcom_dag, task_id=is_accurate, execution_date=20211015T000000, start_date=20211016T170233, end_date=20211016T170233
+[2021-10-16 17:02:33,297] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-16 17:02:33,328] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-10-16 17:05:51,192] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T17:05:43.876339+00:00 [queued]>
+[2021-10-16 17:05:51,206] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T17:05:43.876339+00:00 [queued]>
+[2021-10-16 17:05:51,206] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 17:05:51,207] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-10-16 17:05:51,207] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 17:05:51,216] {taskinstance.py:1262} INFO - Executing <Task(BranchPythonOperator): is_accurate> on 2021-10-16 17:05:43.876339+00:00
+[2021-10-16 17:05:51,221] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'xcom_dag', 'is_accurate', 'manual__2021-10-16T17:05:43.876339+00:00', '--job-id', '198', '--raw', '--subdir', 'DAGS_FOLDER/xcom_dag.py', '--cfg-path', '/tmp/tmpinldhz7k', '--error-file', '/tmp/tmpnb1_2ts3']
+[2021-10-16 17:05:51,222] {standard_task_runner.py:77} INFO - Job 198: Subtask is_accurate
+[2021-10-16 17:05:51,219] {standard_task_runner.py:52} INFO - Started process 7470 to run task
+[2021-10-16 17:05:51,251] {logging_mixin.py:109} INFO - Running <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T17:05:43.876339+00:00 [running]> on host 981af2cc3d86
+[2021-10-16 17:05:51,287] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=xcom_dag
+AIRFLOW_CTX_TASK_ID=is_accurate
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-16T17:05:43.876339+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-10-16T17:05:43.876339+00:00
+[2021-10-16 17:05:51,293] {logging_mixin.py:109} INFO - [3.822483191911624]
+[2021-10-16 17:05:51,293] {python.py:152} INFO - Done. Returned value was: inaccurate
+[2021-10-16 17:05:51,293] {skipmixin.py:143} INFO - Following branch inaccurate
+[2021-10-16 17:05:51,294] {skipmixin.py:174} INFO - Skipping tasks ['accurate']
+[2021-10-16 17:05:51,326] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=xcom_dag, task_id=is_accurate, execution_date=20211016T170543, start_date=20211016T170551, end_date=20211016T170551
+[2021-10-16 17:05:51,355] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-16 17:05:51,384] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-10-16 17:08:47,009] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T17:08:39.746229+00:00 [queued]>
+[2021-10-16 17:08:47,024] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T17:08:39.746229+00:00 [queued]>
+[2021-10-16 17:08:47,024] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 17:08:47,024] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-10-16 17:08:47,024] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 17:08:47,036] {taskinstance.py:1262} INFO - Executing <Task(BranchPythonOperator): is_accurate> on 2021-10-16 17:08:39.746229+00:00
+[2021-10-16 17:08:47,040] {standard_task_runner.py:52} INFO - Started process 7633 to run task
+[2021-10-16 17:08:47,047] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'xcom_dag', 'is_accurate', 'manual__2021-10-16T17:08:39.746229+00:00', '--job-id', '204', '--raw', '--subdir', 'DAGS_FOLDER/xcom_dag.py', '--cfg-path', '/tmp/tmpzhlshfdj', '--error-file', '/tmp/tmpaus_0zjj']
+[2021-10-16 17:08:47,047] {standard_task_runner.py:77} INFO - Job 204: Subtask is_accurate
+[2021-10-16 17:08:47,105] {logging_mixin.py:109} INFO - Running <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T17:08:39.746229+00:00 [running]> on host 981af2cc3d86
+[2021-10-16 17:08:47,141] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=xcom_dag
+AIRFLOW_CTX_TASK_ID=is_accurate
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-16T17:08:39.746229+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-10-16T17:08:39.746229+00:00
+[2021-10-16 17:08:47,148] {logging_mixin.py:109} INFO - [6.840874887741323]
+[2021-10-16 17:08:47,148] {python.py:152} INFO - Done. Returned value was: accurate
+[2021-10-16 17:08:47,148] {skipmixin.py:143} INFO - Following branch accurate
+[2021-10-16 17:08:47,148] {skipmixin.py:174} INFO - Skipping tasks ['inaccurate']
+[2021-10-16 17:08:47,177] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=xcom_dag, task_id=is_accurate, execution_date=20211016T170839, start_date=20211016T170847, end_date=20211016T170847
+[2021-10-16 17:08:47,218] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-16 17:08:47,255] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-10-16 17:19:07,272] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T17:19:00.235820+00:00 [queued]>
+[2021-10-16 17:19:07,282] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T17:19:00.235820+00:00 [queued]>
+[2021-10-16 17:19:07,282] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 17:19:07,282] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-10-16 17:19:07,283] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 17:19:07,295] {taskinstance.py:1262} INFO - Executing <Task(BranchPythonOperator): is_accurate> on 2021-10-16 17:19:00.235820+00:00
+[2021-10-16 17:19:07,302] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'xcom_dag', 'is_accurate', 'manual__2021-10-16T17:19:00.235820+00:00', '--job-id', '212', '--raw', '--subdir', 'DAGS_FOLDER/xcom_dag.py', '--cfg-path', '/tmp/tmpk3ge7jsa', '--error-file', '/tmp/tmp1ew1n7li']
+[2021-10-16 17:19:07,302] {standard_task_runner.py:77} INFO - Job 212: Subtask is_accurate
+[2021-10-16 17:19:07,299] {standard_task_runner.py:52} INFO - Started process 119 to run task
+[2021-10-16 17:19:07,334] {logging_mixin.py:109} INFO - Running <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T17:19:00.235820+00:00 [running]> on host 29ba84338b36
+[2021-10-16 17:19:07,368] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=xcom_dag
+AIRFLOW_CTX_TASK_ID=is_accurate
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-16T17:19:00.235820+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-10-16T17:19:00.235820+00:00
+[2021-10-16 17:19:07,377] {logging_mixin.py:109} INFO - [6.841593629894767]
+[2021-10-16 17:19:07,377] {python.py:152} INFO - Done. Returned value was: accurate
+[2021-10-16 17:19:07,377] {skipmixin.py:143} INFO - Following branch accurate
+[2021-10-16 17:19:07,377] {skipmixin.py:174} INFO - Skipping tasks ['inaccurate']
+[2021-10-16 17:19:07,409] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=xcom_dag, task_id=is_accurate, execution_date=20211016T171900, start_date=20211016T171907, end_date=20211016T171907
+[2021-10-16 17:19:07,436] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-16 17:19:07,470] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-10-16 17:19:44,359] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T17:19:36.938130+00:00 [queued]>
+[2021-10-16 17:19:44,368] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T17:19:36.938130+00:00 [queued]>
+[2021-10-16 17:19:44,368] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 17:19:44,368] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-10-16 17:19:44,368] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 17:19:44,381] {taskinstance.py:1262} INFO - Executing <Task(BranchPythonOperator): is_accurate> on 2021-10-16 17:19:36.938130+00:00
+[2021-10-16 17:19:44,387] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'xcom_dag', 'is_accurate', 'manual__2021-10-16T17:19:36.938130+00:00', '--job-id', '218', '--raw', '--subdir', 'DAGS_FOLDER/xcom_dag.py', '--cfg-path', '/tmp/tmpm35wyj3o', '--error-file', '/tmp/tmpyo5gcdq9']
+[2021-10-16 17:19:44,387] {standard_task_runner.py:77} INFO - Job 218: Subtask is_accurate
+[2021-10-16 17:19:44,384] {standard_task_runner.py:52} INFO - Started process 164 to run task
+[2021-10-16 17:19:44,415] {logging_mixin.py:109} INFO - Running <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T17:19:36.938130+00:00 [running]> on host 29ba84338b36
+[2021-10-16 17:19:44,450] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=xcom_dag
+AIRFLOW_CTX_TASK_ID=is_accurate
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-16T17:19:36.938130+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-10-16T17:19:36.938130+00:00
+[2021-10-16 17:19:44,457] {logging_mixin.py:109} INFO - [6.841593629894767]
+[2021-10-16 17:19:44,457] {python.py:152} INFO - Done. Returned value was: accurate
+[2021-10-16 17:19:44,457] {skipmixin.py:143} INFO - Following branch accurate
+[2021-10-16 17:19:44,457] {skipmixin.py:174} INFO - Skipping tasks ['inaccurate']
+[2021-10-16 17:19:44,490] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=xcom_dag, task_id=is_accurate, execution_date=20211016T171936, start_date=20211016T171944, end_date=20211016T171944
+[2021-10-16 17:19:44,521] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-16 17:19:44,556] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-10-16 17:20:51,182] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T17:20:38.520487+00:00 [queued]>
+[2021-10-16 17:20:51,195] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T17:20:38.520487+00:00 [queued]>
+[2021-10-16 17:20:51,195] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 17:20:51,195] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-10-16 17:20:51,195] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 17:20:51,204] {taskinstance.py:1262} INFO - Executing <Task(BranchPythonOperator): is_accurate> on 2021-10-16 17:20:38.520487+00:00
+[2021-10-16 17:20:51,211] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'xcom_dag', 'is_accurate', 'manual__2021-10-16T17:20:38.520487+00:00', '--job-id', '224', '--raw', '--subdir', 'DAGS_FOLDER/xcom_dag.py', '--cfg-path', '/tmp/tmpymuw9ted', '--error-file', '/tmp/tmpdjymf7xx']
+[2021-10-16 17:20:51,211] {standard_task_runner.py:77} INFO - Job 224: Subtask is_accurate
+[2021-10-16 17:20:51,208] {standard_task_runner.py:52} INFO - Started process 77 to run task
+[2021-10-16 17:20:51,240] {logging_mixin.py:109} INFO - Running <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T17:20:38.520487+00:00 [running]> on host 29ba84338b36
+[2021-10-16 17:20:51,278] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=xcom_dag
+AIRFLOW_CTX_TASK_ID=is_accurate
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-16T17:20:38.520487+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-10-16T17:20:38.520487+00:00
+[2021-10-16 17:20:51,286] {logging_mixin.py:109} INFO - [9.743771581494027]
+[2021-10-16 17:20:51,286] {python.py:152} INFO - Done. Returned value was: accurate
+[2021-10-16 17:20:51,286] {skipmixin.py:143} INFO - Following branch accurate
+[2021-10-16 17:20:51,287] {skipmixin.py:174} INFO - Skipping tasks ['inaccurate']
+[2021-10-16 17:20:51,318] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=xcom_dag, task_id=is_accurate, execution_date=20211016T172038, start_date=20211016T172051, end_date=20211016T172051
+[2021-10-16 17:20:51,345] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-16 17:20:51,375] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-10-16 17:21:26,702] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T17:21:19.217883+00:00 [queued]>
+[2021-10-16 17:21:26,714] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T17:21:19.217883+00:00 [queued]>
+[2021-10-16 17:21:26,714] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 17:21:26,714] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-10-16 17:21:26,714] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 17:21:26,724] {taskinstance.py:1262} INFO - Executing <Task(BranchPythonOperator): is_accurate> on 2021-10-16 17:21:19.217883+00:00
+[2021-10-16 17:21:26,730] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'xcom_dag', 'is_accurate', 'manual__2021-10-16T17:21:19.217883+00:00', '--job-id', '230', '--raw', '--subdir', 'DAGS_FOLDER/xcom_dag.py', '--cfg-path', '/tmp/tmp1pbav14z', '--error-file', '/tmp/tmp21yi1brb']
+[2021-10-16 17:21:26,730] {standard_task_runner.py:77} INFO - Job 230: Subtask is_accurate
+[2021-10-16 17:21:26,727] {standard_task_runner.py:52} INFO - Started process 120 to run task
+[2021-10-16 17:21:26,763] {logging_mixin.py:109} INFO - Running <TaskInstance: xcom_dag.is_accurate manual__2021-10-16T17:21:19.217883+00:00 [running]> on host 29ba84338b36
+[2021-10-16 17:21:26,796] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=xcom_dag
+AIRFLOW_CTX_TASK_ID=is_accurate
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-16T17:21:19.217883+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-10-16T17:21:19.217883+00:00
+[2021-10-16 17:21:26,803] {logging_mixin.py:109} INFO - [9.743771581494027]
+[2021-10-16 17:21:26,803] {python.py:152} INFO - Done. Returned value was: accurate
+[2021-10-16 17:21:26,803] {skipmixin.py:143} INFO - Following branch accurate
+[2021-10-16 17:21:26,804] {skipmixin.py:174} INFO - Skipping tasks ['inaccurate']
+[2021-10-16 17:21:26,839] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=xcom_dag, task_id=is_accurate, execution_date=20211016T172119, start_date=20211016T172126, end_date=20211016T172126
+[2021-10-16 17:21:26,864] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-16 17:21:26,898] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

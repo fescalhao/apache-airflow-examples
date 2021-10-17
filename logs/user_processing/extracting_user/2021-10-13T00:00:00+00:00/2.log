@@ -1,0 +1,25 @@
+[2021-10-14 19:26:35,568] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: user_processing.extracting_user manual__2021-10-14T19:08:59.171717+00:00 [queued]>
+[2021-10-14 19:26:35,582] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: user_processing.extracting_user manual__2021-10-14T19:08:59.171717+00:00 [queued]>
+[2021-10-14 19:26:35,582] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-14 19:26:35,582] {taskinstance.py:1242} INFO - Starting attempt 2 of 2
+[2021-10-14 19:26:35,582] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-14 19:26:35,591] {taskinstance.py:1262} INFO - Executing <Task(SimpleHttpOperator): extracting_user> on 2021-10-14 19:08:59.171717+00:00
+[2021-10-14 19:26:35,595] {standard_task_runner.py:52} INFO - Started process 131 to run task
+[2021-10-14 19:26:35,597] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'user_processing', 'extracting_user', 'manual__2021-10-14T19:08:59.171717+00:00', '--job-id', '43', '--raw', '--subdir', 'DAGS_FOLDER/user_processing.py', '--cfg-path', '/tmp/tmpu_zwhik_', '--error-file', '/tmp/tmpc2lq9oc0']
+[2021-10-14 19:26:35,598] {standard_task_runner.py:77} INFO - Job 43: Subtask extracting_user
+[2021-10-14 19:26:35,626] {logging_mixin.py:109} INFO - Running <TaskInstance: user_processing.extracting_user manual__2021-10-14T19:08:59.171717+00:00 [running]> on host 981af2cc3d86
+[2021-10-14 19:26:35,660] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=user_processing
+AIRFLOW_CTX_TASK_ID=extracting_user
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-14T19:08:59.171717+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-10-14T19:08:59.171717+00:00
+[2021-10-14 19:26:35,660] {http.py:111} INFO - Calling HTTP method
+[2021-10-14 19:26:35,667] {base.py:79} INFO - Using connection to: id: user_api. Host: https://randomuser.me/, Port: None, Schema: , Login: , Password: None, extra: {}
+[2021-10-14 19:26:35,670] {http.py:140} INFO - Sending 'GET' to url: https://randomuser.me/api/
+[2021-10-14 19:26:35,903] {http.py:115} INFO - {"results":[{"gender":"female","name":{"title":"Miss","first":"Veera","last":"Ollila"},"location":{"street":{"number":5130,"name":"Hatanpään Valtatie"},"city":"Kauhajoki","state":"Kainuu","country":"Finland","postcode":69817,"coordinates":{"latitude":"-10.9091","longitude":"48.0696"},"timezone":{"offset":"-12:00","description":"Eniwetok, Kwajalein"}},"email":"veera.ollila@example.com","login":{"uuid":"fa408243-a731-4e52-a669-3e1ccdcff7fc","username":"organicelephant942","password":"hannibal","salt":"Eoe6ulxz","md5":"6c29024c6fd0bb290ceca35563db7018","sha1":"d91f4d456fcb41bf3cbaa5d2d70c104252169d35","sha256":"bc96f53aa4bf71f3315755f8aee5f6da3b2fe867a25223f7a86d7da89ae0b26b"},"dob":{"date":"1948-08-15T15:40:57.078Z","age":73},"registered":{"date":"2015-11-18T00:05:17.116Z","age":6},"phone":"08-799-498","cell":"046-546-97-59","id":{"name":"HETU","value":"NaNNA254undefined"},"picture":{"large":"https://randomuser.me/api/portraits/women/77.jpg","medium":"https://randomuser.me/api/portraits/med/women/77.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/77.jpg"},"nat":"FI"}],"info":{"seed":"205db78ee525b916","results":1,"page":1,"version":"1.3"}}
+[2021-10-14 19:26:35,929] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=user_processing, task_id=extracting_user, execution_date=20211014T190859, start_date=20211014T192635, end_date=20211014T192635
+[2021-10-14 19:26:35,970] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-14 19:26:36,007] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

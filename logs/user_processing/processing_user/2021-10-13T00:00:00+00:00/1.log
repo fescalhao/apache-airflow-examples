@@ -1,0 +1,66 @@
+[2021-10-14 00:00:04,675] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: user_processing.processing_user scheduled__2021-10-13T00:00:00+00:00 [queued]>
+[2021-10-14 00:00:04,685] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: user_processing.processing_user scheduled__2021-10-13T00:00:00+00:00 [queued]>
+[2021-10-14 00:00:04,686] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-14 00:00:04,686] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-10-14 00:00:04,686] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-14 00:00:04,699] {taskinstance.py:1262} INFO - Executing <Task(PythonOperator): processing_user> on 2021-10-13 00:00:00+00:00
+[2021-10-14 00:00:04,703] {standard_task_runner.py:52} INFO - Started process 5598 to run task
+[2021-10-14 00:00:04,705] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'user_processing', 'processing_user', 'scheduled__2021-10-13T00:00:00+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/user_processing.py', '--cfg-path', '/tmp/tmphp435t5x', '--error-file', '/tmp/tmp0yolvhz_']
+[2021-10-14 00:00:04,706] {standard_task_runner.py:77} INFO - Job 22: Subtask processing_user
+[2021-10-14 00:00:04,739] {logging_mixin.py:109} INFO - Running <TaskInstance: user_processing.processing_user scheduled__2021-10-13T00:00:00+00:00 [running]> on host 981af2cc3d86
+[2021-10-14 00:00:04,773] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=user_processing
+AIRFLOW_CTX_TASK_ID=processing_user
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-13T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-10-13T00:00:00+00:00
+[2021-10-14 00:00:04,787] {python.py:152} INFO - Done. Returned value was: None
+[2021-10-14 00:00:04,795] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=user_processing, task_id=processing_user, execution_date=20211013T000000, start_date=20211014T000004, end_date=20211014T000004
+[2021-10-14 00:00:04,841] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-14 00:00:04,875] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-10-14 00:00:24,456] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: user_processing.processing_user manual__2021-10-14T00:00:19.776851+00:00 [queued]>
+[2021-10-14 00:00:24,464] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: user_processing.processing_user manual__2021-10-14T00:00:19.776851+00:00 [queued]>
+[2021-10-14 00:00:24,465] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-14 00:00:24,465] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-10-14 00:00:24,465] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-14 00:00:24,477] {taskinstance.py:1262} INFO - Executing <Task(PythonOperator): processing_user> on 2021-10-14 00:00:19.776851+00:00
+[2021-10-14 00:00:24,481] {standard_task_runner.py:52} INFO - Started process 5632 to run task
+[2021-10-14 00:00:24,483] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'user_processing', 'processing_user', 'manual__2021-10-14T00:00:19.776851+00:00', '--job-id', '27', '--raw', '--subdir', 'DAGS_FOLDER/user_processing.py', '--cfg-path', '/tmp/tmpeltl96lu', '--error-file', '/tmp/tmpqv4mk7bs']
+[2021-10-14 00:00:24,483] {standard_task_runner.py:77} INFO - Job 27: Subtask processing_user
+[2021-10-14 00:00:24,511] {logging_mixin.py:109} INFO - Running <TaskInstance: user_processing.processing_user manual__2021-10-14T00:00:19.776851+00:00 [running]> on host 981af2cc3d86
+[2021-10-14 00:00:24,542] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=user_processing
+AIRFLOW_CTX_TASK_ID=processing_user
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-14T00:00:19.776851+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-10-14T00:00:19.776851+00:00
+[2021-10-14 00:00:24,553] {python.py:152} INFO - Done. Returned value was: None
+[2021-10-14 00:00:24,562] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=user_processing, task_id=processing_user, execution_date=20211014T000019, start_date=20211014T000024, end_date=20211014T000024
+[2021-10-14 00:00:24,574] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-14 00:00:24,597] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-10-14 19:09:03,977] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: user_processing.processing_user manual__2021-10-14T19:08:59.171717+00:00 [queued]>
+[2021-10-14 19:09:03,991] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: user_processing.processing_user manual__2021-10-14T19:08:59.171717+00:00 [queued]>
+[2021-10-14 19:09:03,992] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-14 19:09:03,992] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-10-14 19:09:03,992] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-14 19:09:04,001] {taskinstance.py:1262} INFO - Executing <Task(PythonOperator): processing_user> on 2021-10-14 19:08:59.171717+00:00
+[2021-10-14 19:09:04,005] {standard_task_runner.py:52} INFO - Started process 143 to run task
+[2021-10-14 19:09:04,007] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'user_processing', 'processing_user', 'manual__2021-10-14T19:08:59.171717+00:00', '--job-id', '36', '--raw', '--subdir', 'DAGS_FOLDER/user_processing.py', '--cfg-path', '/tmp/tmppc3ckak6', '--error-file', '/tmp/tmpekrnhcoy']
+[2021-10-14 19:09:04,007] {standard_task_runner.py:77} INFO - Job 36: Subtask processing_user
+[2021-10-14 19:09:04,036] {logging_mixin.py:109} INFO - Running <TaskInstance: user_processing.processing_user manual__2021-10-14T19:08:59.171717+00:00 [running]> on host 981af2cc3d86
+[2021-10-14 19:09:04,070] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=user_processing
+AIRFLOW_CTX_TASK_ID=processing_user
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-14T19:08:59.171717+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-10-14T19:08:59.171717+00:00
+[2021-10-14 19:09:04,082] {python.py:152} INFO - Done. Returned value was: None
+[2021-10-14 19:09:04,090] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=user_processing, task_id=processing_user, execution_date=20211014T190859, start_date=20211014T190903, end_date=20211014T190904
+[2021-10-14 19:09:04,139] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-14 19:09:04,162] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

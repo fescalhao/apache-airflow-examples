@@ -1,0 +1,27 @@
+[2021-10-16 15:52:57,033] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: parallel_dag.processing_task manual__2021-10-16T15:52:52.535280+00:00 [queued]>
+[2021-10-16 15:52:57,046] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: parallel_dag.processing_task manual__2021-10-16T15:52:52.535280+00:00 [queued]>
+[2021-10-16 15:52:57,046] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 15:52:57,046] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-10-16 15:52:57,046] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-10-16 15:52:57,054] {taskinstance.py:1262} INFO - Executing <Task(SubDagOperator): processing_task> on 2021-10-16 15:52:52.535280+00:00
+[2021-10-16 15:52:57,060] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'parallel_dag', 'processing_task', 'manual__2021-10-16T15:52:52.535280+00:00', '--job-id', '89', '--raw', '--subdir', 'DAGS_FOLDER/parallel_dag.py', '--cfg-path', '/tmp/tmpn5lk3p4o', '--error-file', '/tmp/tmpi7rwx6zx']
+[2021-10-16 15:52:57,060] {standard_task_runner.py:77} INFO - Job 89: Subtask processing_task
+[2021-10-16 15:52:57,058] {standard_task_runner.py:52} INFO - Started process 3571 to run task
+[2021-10-16 15:52:57,087] {logging_mixin.py:109} INFO - Running <TaskInstance: parallel_dag.processing_task manual__2021-10-16T15:52:52.535280+00:00 [running]> on host 981af2cc3d86
+[2021-10-16 15:52:57,121] {taskinstance.py:1414} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=parallel_dag
+AIRFLOW_CTX_TASK_ID=processing_task
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-16T15:52:52.535280+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-10-16T15:52:52.535280+00:00
+[2021-10-16 15:52:57,123] {warnings.py:99} WARNING - /home/***/.local/lib/python3.6/site-packages/***/models/taskinstance.py:1917: DeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' instead.
+  warnings.warn(message, DeprecationWarning)
+
+[2021-10-16 15:52:57,144] {subdag.py:176} INFO - Created DagRun: scheduled__2021-10-16T15:52:52.535280+00:00
+[2021-10-16 15:53:57,214] {base.py:249} INFO - Success criteria met. Exiting.
+[2021-10-16 15:53:57,221] {subdag.py:191} INFO - Execution finished. State is success
+[2021-10-16 15:53:57,236] {taskinstance.py:1280} INFO - Marking task as SUCCESS. dag_id=parallel_dag, task_id=processing_task, execution_date=20211016T155252, start_date=20211016T155257, end_date=20211016T155357
+[2021-10-16 15:53:57,261] {local_task_job.py:154} INFO - Task exited with return code 0
+[2021-10-16 15:53:57,287] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
